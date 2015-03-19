@@ -40,7 +40,7 @@ final public class Word2VecFilterFactory extends TokenFilterFactory implements R
     private final TermSelection termSelectionStrategy;
     private final boolean multiword;
 
-    protected Word2VecFilterFactory(Map<String, String> args) {
+    public Word2VecFilterFactory(Map<String, String> args) {
         super(args);
 
         this.vectorsFile = require(args, "vectors");
@@ -60,7 +60,6 @@ final public class Word2VecFilterFactory extends TokenFilterFactory implements R
         this.expander = new QueryExpander(vectors, true, termSelectionStrategy);
     }
 
-    @SuppressWarnings("resource")
     @Override
     public TokenStream create(TokenStream input) {
         // if there are no vectors, just return the original token stream.
