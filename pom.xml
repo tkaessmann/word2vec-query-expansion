@@ -4,7 +4,7 @@
 
 	<groupId>com.radialpoint</groupId>
 	<artifactId>com.radialpoint.word2vec.query_expansion</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<packaging>jar</packaging>
 
 	<name>word2vec</name>
