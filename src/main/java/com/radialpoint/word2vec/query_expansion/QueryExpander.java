@@ -86,6 +86,15 @@ public class QueryExpander {
                 return selectTopN(terms, 5);
             }
         },
+        
+        /**
+         * Return the top 15 terms
+         */
+        TOP15 {
+           protected List<ScoredTerm> select(List<ScoredTerm> terms) {
+              return selectTopN(terms, 30);
+           }
+        },
 
         /**
          * Cut off at 75% cosine (absolute)
@@ -192,11 +201,11 @@ public class QueryExpander {
         List<Distance.ScoredTerm> expansion = null;
         try {
             if (combinedVector)
-                expansion = Distance.measure(vectors, 50, terms);
+                expansion = Distance.measure(vectors, 15, terms);
             else {
                 expansion = new ArrayList<Distance.ScoredTerm>();
                 for (String term : terms)
-                    merge(expansion, Distance.measure(vectors, 50, new String[] { term }));
+                    merge(expansion, Distance.measure(vectors, 15, new String[] { term }));
             }
         } catch (OutOfVocabularyException e) {
             // can't happen
