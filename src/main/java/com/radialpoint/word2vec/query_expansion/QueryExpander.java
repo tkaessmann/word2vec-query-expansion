@@ -92,7 +92,7 @@ public class QueryExpander {
          */
         TOP15 {
            protected List<ScoredTerm> select(List<ScoredTerm> terms) {
-              return selectTopN(terms, 30);
+              return selectTopN(terms, 15);
            }
         },
 
