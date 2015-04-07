@@ -21,8 +21,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.nio.charset.Charset;
 
 /**
  * This program takes vectors are produced by the C program word2vec and transforms them into a Java binary file to be
@@ -48,7 +46,7 @@ public class ConvertVectors {
       if (!vectorFile.exists())
          throw new VectorsException("Vectors file not found");
 
-      InputStreamReader fis = new InputStreamReader(new FileInputStream(vectorFile), Charset.forName("UTF-8"));
+      FileInputStream fis = new FileInputStream(vectorFile);
 
       StringBuilder sb = new StringBuilder();
       char ch = (char) fis.read();
